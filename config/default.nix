@@ -24,7 +24,7 @@ in
         };
       };
     };
-    config = mkIf (cfg.enable && cfg.nixvim.enable) {
+    config = mkIf cfg.nixvim.enable {
       programs = {
         nixvim = {
           enable = cfg.nixvim.enable;
