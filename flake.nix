@@ -34,7 +34,7 @@
           ];
         };
       in {
-        inherit inputs;
+        inputs = inputs.${system};
         homeManagerModules = {
           default = import ./config;
         };
