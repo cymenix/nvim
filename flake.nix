@@ -26,15 +26,9 @@
     inputs.flake-utils.lib.eachDefaultSystem (
       system: let
         inherit (inputs) nixpkgs;
-        pkgs = import nixpkgs {
-          inherit system;
-          overlays = with inputs; [
-            neovim-nightly-overlay.overlays.default
-            neorg-overlay.overlays.default
-          ];
-        };
+        pkgs = import nixpkgs {inherit system;};
       in {
-        inputs = inputs.${system};
+        inherit inputs;
         homeManagerModules = {
           default = import ./config;
         };

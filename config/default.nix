@@ -1,10 +1,18 @@
 {
+  nixpkgs,
+  system,
   inputs,
   config,
   lib,
   ...
 }: let
   cfg = config.modules.editor;
+  pkgs = import nixpkgs {
+    inherit system;
+    overlays = with inputs; [
+      neovim-nightly-overlay.overlays.default
+    ];
+  };
 in
   with lib; {
     imports = [
@@ -28,6 +36,7 @@ in
       programs = {
         nixvim = {
           enable = cfg.nixvim.enable;
+          package = pkgs.neovim;
           enableMan = true;
           vimAlias = false;
           viAlias = false;

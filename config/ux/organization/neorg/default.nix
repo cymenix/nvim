@@ -1,5 +1,7 @@
 {
-  pkgs,
+  nixpkgs,
+  inputs,
+  system,
   config,
   osConfig,
   lib,
@@ -7,6 +9,12 @@
 }: let
   cfg = config.modules.editor.nixvim;
   flake = osConfig.modules.users.flake;
+  pkgs = import nixpkgs {
+    inherit system;
+    overlays = with inputs; [
+      neorg-overlay.overlays.default
+    ];
+  };
 in
   with lib; {
     options = {
