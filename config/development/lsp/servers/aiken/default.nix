@@ -26,7 +26,7 @@ in
               lsp = {
                 servers = {
                   aiken = {
-                    enable = mkEnableOption "Enable aiken support" // {default = cfg.enable;};
+                    enable = mkEnableOption "Enable aiken support" // {default = false;};
                   };
                 };
               };
