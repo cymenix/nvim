@@ -8,7 +8,7 @@
 in
   with lib; {
     imports = [
-      inputs.nixvim.homeManagerModules.nixvim
+      inputs.nixvim.homeManagerModules
       ./core
       ./development
       ./ui
