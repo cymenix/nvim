@@ -18,9 +18,8 @@ in
     options = {
       modules = {
         editor = {
-          enable = mkEnableOption "Enable the editor" // {default = true;};
           nixvim = {
-            enable = mkEnableOption "Enable an amazing neovim setup" // {default = cfg.enable;};
+            enable = mkEnableOption "Enable an amazing neovim setup" // {default = false;};
           };
         };
       };
