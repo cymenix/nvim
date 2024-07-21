@@ -28,7 +28,15 @@
         inherit (inputs) nixpkgs;
         pkgs = import nixpkgs {inherit system;};
       in {
-        inherit inputs;
+        inputs = {
+          inherit
+            (inputs)
+            nixvim
+            neovim-nightly-overlay
+            neorg-overlay
+            aiken
+            ;
+        };
         homeManagerModules = {
           default = import ./config;
         };
