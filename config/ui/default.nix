@@ -10,6 +10,7 @@ in
       ./commandline
       ./cursor
       ./explorer
+      ./icons
       ./notifications
       ./prompts
       ./scope
