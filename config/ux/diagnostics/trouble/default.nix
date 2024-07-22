@@ -3,7 +3,7 @@
     nixvim = {
       keymaps = [
         {
-          action = ":TroubleToggle<CR>";
+          action = ":Trouble<CR>";
           key = "<leader>tt";
           mode = "n";
           options = {
