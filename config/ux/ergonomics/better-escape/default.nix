@@ -3,7 +3,7 @@
     nixvim = {
       plugins = {
         better-escape = {
-          enable = true;
+          enable = false;
           mapping = ["jj" "jk"];
         };
       };
