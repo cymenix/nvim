@@ -17,7 +17,7 @@
             owner = "tree-sitter";
             repo = "tree-sitter";
             rev = "v${version}";
-            sha256 = "sha256-44FIO0kPso6NxjLwmggsheILba3r9GEhDld2ddt601g=";
+            sha256 = "sha256-f8bdpiPNo5M8aefTmrQ2MQVg7lS0Yq7j312K1slortA=";
             fetchSubmodules = true;
           };
         });
