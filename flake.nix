@@ -18,6 +18,11 @@
     };
     neovim-nightly-overlay = {
       url = "github:clemenscodes/neovim-nightly-overlay";
+      inputs = {
+        nixpkgs = {
+          follows = "nixpkgs";
+        };
+      };
     };
     neorg-overlay = {
       url = "github:nvim-neorg/nixpkgs-neorg-overlay";

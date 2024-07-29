@@ -9,7 +9,10 @@
   cfg = config.modules.editor;
   pkgs = import nixpkgs {
     inherit system;
-    overlays = with inputs; [neovim-nightly-overlay.overlays.default];
+    overlays = with inputs; [
+      neovim-nightly-overlay.overlays.default
+      neorg-overlay.overlays.default
+    ];
   };
 in
   with lib; {
