@@ -46,8 +46,13 @@
           };
         };
         which-key = {
-          registrations = {
-            "<leader>i" = "Format";
+          settings = {
+            spec = [
+              {
+                __unkeyed-1 = "<leader>i";
+                desc = "Format";
+              }
+            ];
           };
         };
       };

@@ -81,14 +81,29 @@ in
           ];
           plugins = {
             which-key = {
-              registrations = {
-                "<leader>x" = {
-                  name = "+Nx";
-                  a = "Nx actions";
-                  g = "Nx generators";
-                  f = "Nx affected";
-                  m = "Nx run-many";
-                };
+              settings = {
+                spec = [
+                  {
+                    __unkeyed-1 = "<leader>x";
+                    group = "+Nx";
+                  }
+                  {
+                    __unkeyed-1 = "<leader>xa";
+                    desc = "Nx actions";
+                  }
+                  {
+                    __unkeyed-1 = "<leader>xg";
+                    desc = "Nx generators";
+                  }
+                  {
+                    __unkeyed-1 = "<leader>xf";
+                    desc = "Nx affected";
+                  }
+                  {
+                    __unkeyed-1 = "<leader>xm";
+                    desc = "Nx run-many";
+                  }
+                ];
               };
             };
           };

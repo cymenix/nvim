@@ -28,14 +28,29 @@
           settings = {};
         };
         which-key = {
-          registrations = {
-            "<leader>f" = {
-              name = "Telescope";
-              f = "Find files";
-              g = "Live grep";
-              p = "Projects";
-              n = "Nix";
-            };
+          settings = {
+            spec = [
+              {
+                __unkeyed-1 = "<leader>f";
+                group = "+Telescope";
+              }
+              {
+                __unkeyed-1 = "<leader>ff";
+                desc = "Find files";
+              }
+              {
+                __unkeyed-1 = "<leader>fg";
+                desc = "Live grep";
+              }
+              {
+                __unkeyed-1 = "<leader>fp";
+                desc = "Projects";
+              }
+              {
+                __unkeyed-1 = "<leader>fn";
+                desc = "Nix";
+              }
+            ];
           };
         };
       };

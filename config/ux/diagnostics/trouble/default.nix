@@ -17,8 +17,13 @@
           enable = true;
         };
         which-key = {
-          registrations = {
-            "<leader>tt" = "Toggle trouble";
+          settings = {
+            spec = [
+              {
+                __unkeyed-1 = "<leader>tt";
+                desc = "Toggle trouble";
+              }
+            ];
           };
         };
       };

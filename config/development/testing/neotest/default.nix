@@ -99,17 +99,29 @@
       ];
       plugins = {
         which-key = {
-          registrations = {
-            "<leader>r" = {
-              name = "+Test";
-              r = "Run nearest test";
-              d = "Debug nearest test";
-              n = "Jump to next test";
-              p = "Jump to previous test";
-              a = "Run all tests";
-            };
-            "<leader>ts" = "Toggle test summary";
-            "<leader>to" = "Toggle test output panel";
+          settings = {
+            spec = [
+              {
+                __unkeyed-1 = "<leader>r";
+                group = "+Test";
+              }
+              {
+                __unkeyed-1 = "<leader>rd";
+                desc = "Debug nearest test";
+              }
+              {
+                __unkeyed-1 = "<leader>rn";
+                desc = "Jump to next test";
+              }
+              {
+                __unkeyed-1 = "<leader>rp";
+                desc = "Jump to previous test";
+              }
+              {
+                __unkeyed-1 = "<leader>ra";
+                desc = "Run all tests";
+              }
+            ];
           };
         };
       };
