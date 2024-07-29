@@ -102,8 +102,13 @@
           extraOptions = {};
         };
         which-key = {
-          registrations = {
-            "<leader>e" = "Toggle nvim-tree";
+          settings = {
+            spec = [
+              {
+                __unkeyed-1 = "<leader>e";
+                desc = "Toggle nvim-tree";
+              }
+            ];
           };
         };
       };
