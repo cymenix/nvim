@@ -11,6 +11,16 @@
     inherit system;
     overlays = with inputs; [
       neovim-nightly-overlay.overlays.default
+      (final: prev: {
+        tree-sitter = prev.treesitter.overrideAttrs (oldAttrs: rec {
+          version = "0.22.5";
+          src = prev.fetchFromGitHub {
+            inherit (oldAttrs.src) owner repo fetchSubmodules;
+            rev = "v${version}";
+            sha256 = pkgs.lib.fakeSha256;
+          };
+        });
+      })
     ];
   };
 in
