@@ -14,7 +14,8 @@
         tree-sitter = prev.tree-sitter.overrideAttrs (oldAttrs: rec {
           version = "0.22.5";
           src = prev.fetchFromGitHub {
-            inherit (oldAttrs.src) owner repo;
+            owner = "tree-sitter";
+            repo = "tree-sitter";
             rev = "v${version}";
             sha256 = "sha256-44FIO0kPso6NxjLwmggsheILba3r9GEhDld2ddt601g=";
             fetchSubmodules = true;
