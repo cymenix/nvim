@@ -8,7 +8,7 @@
       plugins = {
         treesitter = {
           enable = true;
-          package = pkgs.treesitter.overrideAttrs (oldAttrs: rec {
+          package = pkgs.tree-sitter.overrideAttrs (oldAttrs: rec {
             version = "0.22.5";
             src = pkgs.fetchFromGitHub {
               inherit (oldAttrs.src) owner repo fetchSubmodules;
