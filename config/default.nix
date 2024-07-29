@@ -12,7 +12,7 @@
     inherit system;
     overlays = with inputs; [
       (final: prev: {
-        tree-sitter = prev.treesitter.overrideAttrs (oldAttrs: rec {
+        tree-sitter = prev.tree-sitter.overrideAttrs (oldAttrs: rec {
           version = "0.22.5";
           src = prev.fetchFromGitHub {
             inherit (oldAttrs.src) owner repo fetchSubmodules;
