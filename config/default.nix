@@ -17,7 +17,7 @@
           src = prev.fetchFromGitHub {
             inherit (oldAttrs.src) owner repo fetchSubmodules;
             rev = "v${version}";
-            sha256 = pkgs.lib.fakeSha256;
+            sha256 = "sha256-44FIO0kPso6NxjLwmggsheILba3r9GEhDld2ddt601g=";
           };
         });
       })
