@@ -17,12 +17,7 @@
       };
     };
     neovim-nightly-overlay = {
-      url = "github:nix-community/neovim-nightly-overlay";
-      inputs = {
-        nixpkgs = {
-          follows = "nixpkgs";
-        };
-      };
+      url = "github:clemenscodes/neovim-nightly-overlay";
     };
     neorg-overlay = {
       url = "github:nvim-neorg/nixpkgs-neorg-overlay";

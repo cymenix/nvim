@@ -9,21 +9,7 @@
   cfg = config.modules.editor;
   pkgs = import nixpkgs {
     inherit system;
-    overlays = with inputs; [
-      (final: prev: {
-        tree-sitter = prev.tree-sitter.overrideAttrs (oldAttrs: rec {
-          version = "0.22.5";
-          src = prev.fetchFromGitHub {
-            owner = "tree-sitter";
-            repo = "tree-sitter";
-            rev = "v${version}";
-            sha256 = "sha256-f8bdpiPNo5M8aefTmrQ2MQVg7lS0Yq7j312K1slortA=";
-            fetchSubmodules = true;
-          };
-        });
-      })
-      neovim-nightly-overlay.overlays.default
-    ];
+    overlays = with inputs; [neovim-nightly-overlay.overlays.default];
   };
 in
   with lib; {
