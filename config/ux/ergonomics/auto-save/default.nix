@@ -4,8 +4,10 @@
       plugins = {
         auto-save = {
           enable = true;
-          writeAllBuffers = true;
-          extraOptions = {};
+          settings = {
+            writeAllBuffers = true;
+            extraOptions = {};
+          };
         };
       };
     };
