@@ -91,9 +91,17 @@
       ];
       plugins = {
         which-key = {
-          registrations = {
-            "/" = "Search incrementally";
-            "<leader>s" = "Search and replace";
+          settings = {
+            spec = [
+              {
+                __unkeyed-1 = "/";
+                desc = "Search incrementally";
+              }
+              {
+                __unkeyed-1 = "<leader>s";
+                desc = "Search and replace";
+              }
+            ];
           };
         };
       };

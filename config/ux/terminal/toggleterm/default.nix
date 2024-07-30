@@ -21,8 +21,13 @@
           };
         };
         which-key = {
-          registrations = {
-            "<leader>tm" = "Toggle terminal";
+          settings = {
+            spec = [
+              {
+                __unkeyed-1 = "<leader>tm";
+                desc = "Toggle terminal";
+              }
+            ];
           };
         };
       };

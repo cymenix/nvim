@@ -61,20 +61,45 @@
           };
         };
         which-key = {
-          registrations = {
-            "<leader>td" = "Toggle dapui";
-            "<leader>d" = {
-              name = "+Debug";
-              b = "Toggle breakpoint";
-              c = "Continue";
-              k = "Kill debugging session";
-            };
-            "<leader>ds" = {
-              name = "+Steps";
-              i = "Step into function call";
-              u = "Step out of function call";
-              o = "Step over function call";
-            };
+          settings = {
+            spec = [
+              {
+                __unkeyed-1 = "<leader>td";
+                desc = "Toggle dapui";
+              }
+              {
+                __unkeyed-1 = "<leader>d";
+                group = "+Debug";
+              }
+              {
+                __unkeyed-1 = "<leader>db";
+                desc = "Toggle breakpoint";
+              }
+              {
+                __unkeyed-1 = "<leader>dc";
+                desc = "Continue";
+              }
+              {
+                __unkeyed-1 = "<leader>dk";
+                desc = "Kill debugging session";
+              }
+              {
+                __unkeyed-1 = "<leader>ds";
+                group = "+Steps";
+              }
+              {
+                __unkeyed-1 = "<leader>dsi";
+                desc = "Step into function call";
+              }
+              {
+                __unkeyed-1 = "<leader>dsu";
+                desc = "Step out of function call";
+              }
+              {
+                __unkeyed-1 = "<leader>dso";
+                desc = "Step over function call";
+              }
+            ];
           };
         };
       };

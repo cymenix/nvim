@@ -11,9 +11,17 @@
           };
         };
         which-key = {
-          registrations = {
-            "<leader>q" = "Close current buffer";
-            "<leader>w" = "Wipe current buffer";
+          settings = {
+            spec = [
+              {
+                __unkeyed-1 = "<leader>q";
+                desc = "Close current buffer";
+              }
+              {
+                __unkeyed-1 = "<leader>w";
+                desc = "Wipe current buffer";
+              }
+            ];
           };
         };
       };

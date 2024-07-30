@@ -33,8 +33,13 @@
           };
         };
         which-key = {
-          registrations = {
-            "<leader>l" = "Trigger linting for current file";
+          settings = {
+            spec = [
+              {
+                __unkeyed-1 = "<leader>l";
+                desc = "Trigger linting for current file";
+              }
+            ];
           };
         };
       };

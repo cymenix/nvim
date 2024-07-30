@@ -44,8 +44,13 @@
           enable = true;
         };
         which-key = {
-          registrations = {
-            "<leader>tb" = "Toggle tagbar";
+          settings = {
+            spec = [
+              {
+                __unkeyed-1 = "<leader>tb";
+                desc = "Toggle tagbar";
+              }
+            ];
           };
         };
       };

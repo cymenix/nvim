@@ -43,11 +43,17 @@ in
               };
             };
             which-key = {
-              registrations = {
-                c = {
-                  name = "+LSP";
-                  a = "Select code action";
-                };
+              settings = {
+                spec = [
+                  {
+                    __unkeyed-1 = "c";
+                    group = "+LSP";
+                  }
+                  {
+                    __unkeyed-1 = "ca";
+                    desc = "Select code action";
+                  }
+                ];
               };
             };
           };

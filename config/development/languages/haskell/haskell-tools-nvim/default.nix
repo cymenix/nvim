@@ -45,8 +45,13 @@ in
             '';
           plugins = {
             which-key = {
-              registrations = {
-                "<leader>th" = "Toggle Cabal REPL";
+              settings = {
+                spec = [
+                  {
+                    __unkeyed-1 = "<leader>th";
+                    desc = "Toggle Cabal REPL";
+                  }
+                ];
               };
             };
           };

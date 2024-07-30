@@ -67,11 +67,17 @@ in
           ];
           plugins = {
             which-key = {
-              registrations = {
-                "<leader>n" = {
-                  name = "+Neorg";
-                  t = "Toggle neorg";
-                };
+              settings = {
+                spec = [
+                  {
+                    __unkeyed-1 = "<leader>n";
+                    group = "+Neorg";
+                  }
+                  {
+                    __unkeyed-1 = "<leader>nt";
+                    desc = "Toggle neorg";
+                  }
+                ];
               };
             };
           };

@@ -40,8 +40,13 @@
           enable = true;
         };
         which-key = {
-          registrations = {
-            "<leader>tn" = "Toggle Navbuddy";
+          settings = {
+            spec = [
+              {
+                __unkeyed-1 = "<leader>tn";
+                desc = "Toggle Navbuddy";
+              }
+            ];
           };
         };
       };

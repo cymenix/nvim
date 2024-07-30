@@ -27,15 +27,33 @@
           };
         };
         which-key = {
-          registrations = {
-            "<leader>a" = "Rust Action";
-            "<leader>fr" = {
-              name = "+Rust";
-              r = "Find rust runnables";
-              t = "Find rust testables";
-              d = "Find rust debuggables";
-              a = "Run last rust test";
-            };
+          settings = {
+            spec = [
+              {
+                __unkeyed-1 = "<leader>a";
+                desc = "Rust Action";
+              }
+              {
+                __unkeyed-1 = "<leader>fr";
+                group = "+Rust";
+              }
+              {
+                __unkeyed-1 = "<leader>frr";
+                desc = "Find rust runnables";
+              }
+              {
+                __unkeyed-1 = "<leader>frt";
+                desc = "Find rust testables";
+              }
+              {
+                __unkeyed-1 = "<leader>frd";
+                desc = "Find rust debuggables";
+              }
+              {
+                __unkeyed-1 = "<leader>fra";
+                desc = "Run last rust test";
+              }
+            ];
           };
         };
       };
