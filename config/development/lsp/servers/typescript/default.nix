@@ -4,7 +4,7 @@
       plugins = {
         lsp = {
           servers = {
-            tsserver = {
+            ts_ls = {
               enable = true;
               extraOptions = {};
               rootDir =
