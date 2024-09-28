@@ -2,7 +2,7 @@
   programs = {
     nixvim = {
       plugins = {
-        surround = {
+        vim-surround = {
           enable = true;
         };
       };

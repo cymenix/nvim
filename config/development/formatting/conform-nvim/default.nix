@@ -30,19 +30,21 @@
       plugins = {
         conform-nvim = {
           enable = true;
-          formattersByFt = {
-            nix = ["alejandra"];
-            rust = ["rustfmt"];
-            javascript = ["prettierd"];
-            typescript = ["prettierd"];
-            javascriptreact = ["prettierd"];
-            typescriptreact = ["prettierd"];
-            css = ["prettierd"];
-            html = ["prettierd"];
-            json = ["prettierd"];
-            yaml = ["prettierd"];
-            graphql = ["prettierd"];
-            markdown = ["prettierd"];
+          settings = {
+            formatters_by_ft = {
+              nix = ["alejandra"];
+              rust = ["rustfmt"];
+              javascript = ["prettierd"];
+              typescript = ["prettierd"];
+              javascriptreact = ["prettierd"];
+              typescriptreact = ["prettierd"];
+              css = ["prettierd"];
+              html = ["prettierd"];
+              json = ["prettierd"];
+              yaml = ["prettierd"];
+              graphql = ["prettierd"];
+              markdown = ["prettierd"];
+            };
           };
         };
         which-key = {

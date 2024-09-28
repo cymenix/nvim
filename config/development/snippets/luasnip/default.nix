@@ -14,7 +14,6 @@
       plugins = {
         luasnip = {
           enable = true;
-          extraConfig = {};
         };
       };
     };

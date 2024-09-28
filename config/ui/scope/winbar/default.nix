@@ -4,7 +4,9 @@
       plugins = {
         barbecue = {
           enable = true;
-          attachNavic = true;
+          settings = {
+            attachNavic = true;
+          };
         };
         navbuddy = {
           enable = true;
@@ -14,14 +16,15 @@
         };
         navic = {
           enable = true;
-          click = true;
-          highlight = true;
-          lazyUpdateContext = true;
-          lsp = {
-            autoAttach = true;
-            preference = ["typescript" "html" "tailwind"];
+          settings = {
+            click = true;
+            highlight = true;
+            lazyUpdateContext = true;
+            lsp = {
+              autoAttach = true;
+              preference = ["typescript" "html" "tailwind"];
+            };
           };
-          extraOptions = {};
         };
       };
       keymaps = [

@@ -4,30 +4,34 @@
       plugins = {
         bufferline = {
           enable = true;
-          alwaysShowBufferline = true;
-          showCloseIcon = true;
-          showBufferIcons = true;
-          showTabIndicators = true;
-          colorIcons = true;
-          themable = true;
-          mode = "buffers";
-          separatorStyle = "thin";
-          diagnostics = "nvim_lsp";
-          closeIcon = "";
-          bufferCloseIcon = "";
-          modifiedIcon = "●";
-          leftTruncMarker = "";
-          rightTruncMarker = "";
-          indicator = {
-            icon = "▎";
-            style = "icon";
-          };
-          hover = {
-            enabled = true;
-          };
-          highlights = {
-            fill = {
-              bg = "#1E1F38";
+          settings = {
+            options = {
+              themable = true;
+              colorIcons = true;
+              showCloseIcon = true;
+              showBufferIcons = true;
+              showTabIndicators = true;
+              alwaysShowBufferline = true;
+              diagnostics = "nvim_lsp";
+              mode = "buffers";
+              separatorStyle = "thin";
+              bufferCloseIcon = "";
+              closeIcon = "";
+              modifiedIcon = "●";
+              leftTruncMarker = "";
+              rightTruncMarker = "";
+              indicator = {
+                icon = "▎";
+                style = "icon";
+              };
+              hover = {
+                enabled = true;
+              };
+            };
+            highlights = {
+              fill = {
+                bg = "#1E1F38";
+              };
             };
           };
         };

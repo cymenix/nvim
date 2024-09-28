@@ -22,4 +22,15 @@ in
         };
       };
     };
+    config = mkIf (cfg.enable && cfg.icons.enable) {
+      programs = {
+        nixvim = {
+          plugins = {
+            web-devicons = {
+              inherit (cfg.icons) enable;
+            };
+          };
+        };
+      };
+    };
   }
