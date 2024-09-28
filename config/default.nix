@@ -40,7 +40,6 @@ in
           enableMan = true;
           vimAlias = false;
           viAlias = false;
-          type = "lua";
           colorscheme = "catppuccin";
         };
       };
