@@ -15,14 +15,14 @@
       plugins = {
         nvim-tree = {
           enable = true;
-          package = pkgs.vimPlugins.nvim-tree-lua.override {
+          package = pkgs.vimPlugins.nvim-tree-lua.overrideAttrs (oldAttrs: {
             src = pkgs.fetchFromGitHub {
               owner = "nvim-tree";
               repo = "nvim-tree.lua";
               rev = "59a8a6ae5e9d3eae99d08ab655d12fd51d5d17f3";
               hash = "sha256-9oZ740EQ7d75xdjiPp62fj+Wjjq7/5gfBq3z92KkdZM=";
             };
-          };
+          });
           autoClose = true;
           autoReloadOnWrite = true;
           disableNetrw = true;
