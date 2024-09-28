@@ -42,25 +42,16 @@
     };
   };
 
-  outputs = {...} @ inputs:
-    inputs.flake-utils.lib.eachDefaultSystem (
-      system: let
-        inherit (inputs) nixpkgs;
-        pkgs = import nixpkgs {inherit system;};
-      in {
-        inputs = {
-          inherit
-            (inputs)
-            nixvim
-            neovim-nightly-overlay
-            neorg-overlay
-            aiken
-            ;
-        };
-        homeManagerModules = {
-          default = import ./config;
-        };
-        formatter = pkgs.alejandra;
-      }
-    );
+  outputs = inputs:
+    with inputs;
+      flake-utils.lib.eachDefaultSystem (
+        system: let
+          pkgs = import nixpkgs {inherit system;};
+        in {
+          homeManagerModules = {
+            default = import ./config inputs;
+          };
+          formatter = pkgs.alejandra;
+        }
+      );
 }

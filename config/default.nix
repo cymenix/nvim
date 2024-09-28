@@ -1,7 +1,6 @@
-{
+inputs: {
   nixpkgs,
   system,
-  inputs,
   config,
   lib,
   ...
@@ -19,9 +18,9 @@ in
     imports = [
       inputs.nixvim.homeManagerModules.nixvim
       ./core
-      ./development
+      (import ./development inputs)
       ./ui
-      ./ux
+      (import ./ux inputs)
       ./vcs
     ];
     options = {

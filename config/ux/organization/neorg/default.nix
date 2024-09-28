@@ -1,6 +1,5 @@
-{
+inputs: {
   nixpkgs,
-  inputs,
   system,
   config,
   osConfig,

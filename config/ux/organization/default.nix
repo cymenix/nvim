@@ -1,4 +1,4 @@
-{
+inputs: {
   config,
   lib,
   ...
@@ -7,7 +7,7 @@
 in
   with lib; {
     imports = [
-      ./neorg
+      (import ./neorg inputs)
       ./nx
     ];
     options = {

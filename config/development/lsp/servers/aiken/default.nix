@@ -1,6 +1,5 @@
-{
+inputs: {
   pkgs,
-  inputs,
   system,
   config,
   lib,
