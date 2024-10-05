@@ -10,7 +10,22 @@
           servers = {
             clangd = {
               enable = true;
-              extraOptions = {};
+              autostart = true;
+              cmd = [
+                "clangd"
+                "--pretty"
+                "--background-index"
+                "--clang-tidy"
+                "--compile-commands-dir=build"
+              ];
+              filetypes = [
+                "c"
+                "cpp"
+                "objc"
+                "objcpp"
+                "cuda"
+                "proto"
+              ];
             };
           };
         };
