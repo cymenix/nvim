@@ -59,15 +59,7 @@
       };
       keymaps = [
         {
-          action =
-            /*
-            lua
-            */
-            ''
-              function()
-                vim.cmd.RustLsp('codeAction')
-              end
-            '';
+          action = ":RustLsp codeAction<CR>";
           key = "<leader>a";
           mode = "n";
           options = {
