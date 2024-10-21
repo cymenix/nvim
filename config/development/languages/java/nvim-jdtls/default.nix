@@ -27,12 +27,8 @@ in {
                     capabilities = capabilities,
                     cmd = {
                       "java",
-                      '-Declipse.application=org.eclipse.jdt.ls.core.id1',
-                      '-Dosgi.bundles.defaultStartLevel=4',
-                      '-Declipse.product=org.eclipse.jdt.ls.core.product',
                       '-Dlog.protocol=true',
                       '-Dlog.level=ALL',
-                      '-Xmx1g',
                       '-jar',
                       vim.fn.glob("${jdtls}/share/java/jdtls/plugins/org.eclipse.equinox.launcher_*.jar", 1),
                       "-configuration",
