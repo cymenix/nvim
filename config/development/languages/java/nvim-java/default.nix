@@ -54,6 +54,24 @@
       hash = "sha256-FC4MFHqeQBvk16iNcUkHrbsRv9lyqG1BnMkwgB21V0s=";
     };
   };
+  mason-registry = pkgs.vimUtils.buildVimPlugin rec {
+    name = "mason-registry";
+    src = pkgs.fetchFromGitHub {
+      inherit owner;
+      repo = name;
+      rev = "70829cb7c1b3cb1655076f4ab1919bc22065fac6";
+      hash = "sha256-iuXCmOBZrILJOKSkqI0GU6Ci5IRqe7I90iCuHTKDACY=";
+    };
+  };
+  lua-async = pkgs.vimUtils.buildVimPlugin rec {
+    name = "lua-async";
+    src = pkgs.fetchFromGitHub {
+      inherit owner;
+      repo = name;
+      rev = "652d94df34e97abe2d4a689edbc4270e7ead1a98";
+      hash = "sha256-SB+gmBfF3AKZyktOmPaR9CRyTyCYz2jlrxi+jgBI/Eo=";
+    };
+  };
 in {
   programs = {
     nixvim = {
@@ -64,6 +82,8 @@ in {
         nvim-java-refactor
         nvim-java-test
         neotest-jdtls
+        mason-registry
+        lua-async
         pkgs.vimPlugins.nvim-jdtls
         pkgs.vimPlugins.mason-nvim
         pkgs.vimPlugins.mason-tool-installer-nvim
