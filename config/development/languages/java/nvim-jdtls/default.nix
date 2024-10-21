@@ -38,7 +38,7 @@ in {
                       '--add-opens', 'java.base/java.util=ALL-UNNAMED',
                       '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
                       '-jar',
-                      vim.fn.glob("${jdtls}/share/java/jdtls/plugins/org.eclipse.equinox.launcher_*.jar", 1)
+                      vim.fn.glob("${jdtls}/share/java/jdtls/plugins/org.eclipse.equinox.launcher_*.jar", 1),
                       "-configuration",
                       vim.fs.normalize("${config.home.homeDirectory}/.cache/jdtls/config"),
                       "-data", vim.fs.root(0, {".git", "mvnw", "gradlew"}) .. workspace_dir
