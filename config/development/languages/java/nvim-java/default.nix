@@ -54,15 +54,6 @@
       hash = "sha256-FC4MFHqeQBvk16iNcUkHrbsRv9lyqG1BnMkwgB21V0s=";
     };
   };
-  mason-registry = pkgs.vimUtils.buildVimPlugin rec {
-    name = "mason-registry";
-    src = pkgs.fetchFromGitHub {
-      inherit owner;
-      repo = name;
-      rev = "70829cb7c1b3cb1655076f4ab1919bc22065fac6";
-      hash = "sha256-iuXCmOBZrILJOKSkqI0GU6Ci5IRqe7I90iCuHTKDACY=";
-    };
-  };
   lua-async = pkgs.vimUtils.buildVimPlugin rec {
     name = "lua-async";
     src = pkgs.fetchFromGitHub {
@@ -92,7 +83,7 @@ in {
         vscode-extensions.vscjava.vscode-java-pack
         vscode-extensions.vscjava.vscode-maven
         vscode-extensions.vscjava.vscode-gradle
-        sprint-boot-cli
+        spring-boot-cli
       ];
       extraPlugins = with pkgs.vimPlugins; [
         nvim-java
