@@ -8,6 +8,7 @@ in
   with lib; {
     imports = [
       ./haskell
+      ./java
       ./latex
       ./rust
     ];
