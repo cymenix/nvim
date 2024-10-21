@@ -8,11 +8,61 @@
       hash = "sha256-dKn4DaaacRRf9VrgN9TiTnxdqKnlmwCsr51DyAAAEeY=";
     };
   };
+  nvim-java-core = pkgs.vimUtils.buildVimPlugin {
+    name = "nvim-java";
+    src = pkgs.fetchFromGitHub {
+      owner = "nvim-java";
+      repo = "nvim-java-core";
+      rev = "5b03dca22fee76524a89e1c2dc1d73a9f0b1a3bb";
+      hash = "sha256-7DlbKmCkp2gaKEg6vDRc8p4/kzS6tJsRAHmGCwA5Ymc=";
+    };
+  };
+  neotest-jdtls = pkgs.vimUtils.buildVimPlugin {
+    name = "nvim-java";
+    src = pkgs.fetchFromGitHub {
+      owner = "nvim-java";
+      repo = "neotest-jdtls";
+      rev = "548539665409c05607e9166872dc9472531bf725";
+      hash = "sha256-kwKbswEEu6qcaYJ9DgvUbSZN5LwsJzHagm/XuLYIe5o=";
+    };
+  };
+  nvim-java-dap = pkgs.vimUtils.buildVimPlugin {
+    name = "nvim-java";
+    src = pkgs.fetchFromGitHub {
+      owner = "nvim-java";
+      repo = "nvim-java-dap";
+      rev = "55f239532f7a3789d21ea68d1e795abc77484974";
+      hash = "sha256-Xrzydrlbo8B99Y1kJUri0H/3gLBHXaZ/jbIZIfhi2gU=";
+    };
+  };
+  nvim-java-test = pkgs.vimUtils.buildVimPlugin {
+    name = "nvim-java";
+    src = pkgs.fetchFromGitHub {
+      owner = "nvim-java";
+      repo = "nvim-java-test";
+      rev = "7f0f40e9c5b7eab5096d8bec6ac04251c6e81468";
+      hash = "sha256-aqFg+m8EMNpQkj5aQPZaW18dtez+AsxARiEiU3ycW6I=";
+    };
+  };
+  nvim-java-refactor = pkgs.vimUtils.buildVimPlugin {
+    name = "nvim-java";
+    src = pkgs.fetchFromGitHub {
+      owner = "nvim-java";
+      repo = "nvim-java-refactor";
+      rev = "ea1420fed5463c9cc976c2b4175f434b3646f0f7";
+      hash = "sha256-FC4MFHqeQBvk16iNcUkHrbsRv9lyqG1BnMkwgB21V0s=";
+    };
+  };
 in {
   programs = {
     nixvim = {
       extraPlugins = [
         nvim-java
+        nvim-java-core
+        nvim-java-dap
+        nvim-java-refactor
+        nvim-java-test
+        neotest-jdtls
         pkgs.vimPlugins.nvim-jdtls
       ];
       extraConfigLuaPost =
