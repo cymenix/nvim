@@ -72,28 +72,61 @@
       hash = "sha256-SB+gmBfF3AKZyktOmPaR9CRyTyCYz2jlrxi+jgBI/Eo=";
     };
   };
+  sprint-boot-nvim = pkgs.vimUtils.buildVimPlugin rec {
+    name = "spring-boot.nvim";
+    src = pkgs.fetchFromGitHub {
+      inherit owner;
+      repo = name;
+      rev = "218c0c26c14d99feca778e4d13f5ec3e8b1b60f0";
+      hash = "sha256-5mzAr+VS5RGLi5e+ZohrlVHUzPa+6JwEWi4cslKPMNA=";
+    };
+  };
 in {
   programs = {
     nixvim = {
-      extraPlugins = [
+      extraPackages = with pkgs; [
+        jdt-language-server
+        lombok
+        vscode-extensions.vscjava.vscode-java-debug
+        vscode-extensions.vscjava.vscode-java-test
+        vscode-extensions.vscjava.vscode-java-pack
+        vscode-extensions.vscjava.vscode-maven
+        vscode-extensions.vscjava.vscode-gradle
+        sprint-boot-cli
+      ];
+      extraPlugins = with pkgs.vimPlugins; [
         nvim-java
         nvim-java-core
         nvim-java-dap
         nvim-java-refactor
         nvim-java-test
         neotest-jdtls
-        mason-registry
         lua-async
-        pkgs.vimPlugins.nvim-jdtls
-        pkgs.vimPlugins.mason-nvim
-        pkgs.vimPlugins.mason-tool-installer-nvim
-        pkgs.vimPlugins.mason-lspconfig-nvim
+        sprint-boot-nvim
+        nvim-jdtls
+        mason-nvim
+        mason-tool-installer-nvim
+        mason-lspconfig-nvim
+        nui-nvim
       ];
       extraConfigLuaPost =
         /*
         lua
         */
         ''
+          require("mason").setup({
+            registries = {
+              'github:nvim-java/mason-registry',
+              'github:mason-org/mason-registry',
+            },
+            ui = {
+              icons = {
+                package_installed = "✓",
+                package_pending = "➜",
+                package_uninstalled = "✗"
+              }
+            }
+          })
           require('java').setup({
           	--  list of file that exists in root of the project
           	root_markers = {
@@ -119,7 +152,7 @@ in {
           	},
 
           	spring_boot_tools = {
-          		enable = false,
+          		enable = true,
           	},
 
           	jdk = {
