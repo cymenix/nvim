@@ -1,54 +1,55 @@
 {pkgs, ...}: let
-  nvim-java = pkgs.vimUtils.buildVimPlugin {
-    name = "nvim-java";
+  owner = "nvim-java";
+  nvim-java = pkgs.vimUtils.buildVimPlugin rec {
+    name = owner;
     src = pkgs.fetchFromGitHub {
-      owner = "nvim-java";
-      repo = "nvim-java";
+      inherit owner;
+      repo = name;
       rev = "b3174e41ab51867123d8663eced53b33f1548522";
       hash = "sha256-dKn4DaaacRRf9VrgN9TiTnxdqKnlmwCsr51DyAAAEeY=";
     };
   };
-  nvim-java-core = pkgs.vimUtils.buildVimPlugin {
-    name = "nvim-java";
+  nvim-java-core = pkgs.vimUtils.buildVimPlugin rec {
+    name = "${owner}-core";
     src = pkgs.fetchFromGitHub {
-      owner = "nvim-java";
-      repo = "nvim-java-core";
+      inherit owner;
+      repo = name;
       rev = "5b03dca22fee76524a89e1c2dc1d73a9f0b1a3bb";
       hash = "sha256-7DlbKmCkp2gaKEg6vDRc8p4/kzS6tJsRAHmGCwA5Ymc=";
     };
   };
-  neotest-jdtls = pkgs.vimUtils.buildVimPlugin {
-    name = "nvim-java";
+  neotest-jdtls = pkgs.vimUtils.buildVimPlugin rec {
+    name = "neotest-jdtls";
     src = pkgs.fetchFromGitHub {
-      owner = "nvim-java";
-      repo = "neotest-jdtls";
+      inherit owner;
+      repo = name;
       rev = "548539665409c05607e9166872dc9472531bf725";
       hash = "sha256-kwKbswEEu6qcaYJ9DgvUbSZN5LwsJzHagm/XuLYIe5o=";
     };
   };
-  nvim-java-dap = pkgs.vimUtils.buildVimPlugin {
-    name = "nvim-java";
+  nvim-java-dap = pkgs.vimUtils.buildVimPlugin rec {
+    name = "${owner}-dap";
     src = pkgs.fetchFromGitHub {
-      owner = "nvim-java";
-      repo = "nvim-java-dap";
+      inherit owner;
+      repo = name;
       rev = "55f239532f7a3789d21ea68d1e795abc77484974";
       hash = "sha256-Xrzydrlbo8B99Y1kJUri0H/3gLBHXaZ/jbIZIfhi2gU=";
     };
   };
-  nvim-java-test = pkgs.vimUtils.buildVimPlugin {
-    name = "nvim-java";
+  nvim-java-test = pkgs.vimUtils.buildVimPlugin rec {
+    name = "${owner}-test";
     src = pkgs.fetchFromGitHub {
-      owner = "nvim-java";
-      repo = "nvim-java-test";
+      inherit owner;
+      repo = name;
       rev = "7f0f40e9c5b7eab5096d8bec6ac04251c6e81468";
       hash = "sha256-aqFg+m8EMNpQkj5aQPZaW18dtez+AsxARiEiU3ycW6I=";
     };
   };
-  nvim-java-refactor = pkgs.vimUtils.buildVimPlugin {
-    name = "nvim-java";
+  nvim-java-refactor = pkgs.vimUtils.buildVimPlugin rec {
+    name = "${owner}-refactor";
     src = pkgs.fetchFromGitHub {
-      owner = "nvim-java";
-      repo = "nvim-java-refactor";
+      inherit owner;
+      repo = name;
       rev = "ea1420fed5463c9cc976c2b4175f434b3646f0f7";
       hash = "sha256-FC4MFHqeQBvk16iNcUkHrbsRv9lyqG1BnMkwgB21V0s=";
     };
