@@ -23,7 +23,6 @@ in {
                   local cmp_nvim_lsp = require('cmp_nvim_lsp')
                   local client_capabilities = vim.lsp.protocol.make_client_capabilities()
                   local capabilities = cmp_nvim_lsp.default_capabilities(client_capabilities)
-                  local workspace_dir = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
                   local config = {
                     capabilities = capabilities,
                     cmd = {
@@ -41,7 +40,7 @@ in {
                       vim.fn.glob("${jdtls}/share/java/jdtls/plugins/org.eclipse.equinox.launcher_*.jar", 1),
                       "-configuration",
                       vim.fs.normalize("${config.home.homeDirectory}/.cache/jdtls/config"),
-                      "-data", vim.fs.root(0, {".git", "mvnw", "gradlew"}) .. "/" .. workspace_dir
+                      "-data", vim.fs.root(0, {".git", "mvnw", "gradlew"})
                     },
                     root_dir = vim.fs.root(0, {".git", "mvnw", "gradlew"}),
                   }
