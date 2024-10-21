@@ -30,8 +30,8 @@
                       '-Dlog.level=ALL',
                       "-configuration",
                       vim.fs.normalize("${config.home.homeDirectory}/.cache/jdtls/config"),
-                      "-data", 
-                      vim.fs.normalize("${config.home.homeDirectory}/.cache/jdtls/") .. workspace_dir
+                      "-data",
+                      vim.fs.normalize("${config.home.homeDirectory}/.cache/jdtls") .. "/" .. workspace_dir
                     },
                     root_dir = vim.fs.root(0, {".git", "mvnw", "gradlew"}),
                   }
