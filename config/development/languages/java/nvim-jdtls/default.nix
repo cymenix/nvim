@@ -29,7 +29,7 @@ in {
                     cmd = {
                       "${(pkgs.lib.getExe jdtls)}",
                       "-configuration",
-                      vim.fs.normalize("${jdtls}/share/java/jdtls/config_linux"),
+                      vim.fs.normalize("${config.home.homeDirectory}/.cache/jdtls/config"),
                       "-data", vim.fn.expand("${config.home.homeDirectory}/.cache/jdtls/workspace/" .. workspace_dir)
                     },
                     root_dir = require("jdtls.setup").find_root({ ".git", "mvnw", "gradlew" }),
