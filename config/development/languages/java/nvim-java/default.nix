@@ -3,10 +3,10 @@
   nvim-java = pkgs.vimUtils.buildVimPlugin rec {
     name = owner;
     src = pkgs.fetchFromGitHub {
-      owner = "clemenscodes";
+      inherit owner;
       repo = name;
-      rev = "cafcb850a7ee2d05a055ac524e8b0db07e39cb74";
-      hash = "sha256-EbGePQKQavt4vN9dJx9iXGdjmY20QwD3qC/p/msQX9A=";
+      rev = "b3174e41ab51867123d8663eced53b33f1548522";
+      hash = "sha256-dKn4DaaacRRf9VrgN9TiTnxdqKnlmwCsr51DyAAAEeY=";
     };
   };
   nvim-java-core = pkgs.vimUtils.buildVimPlugin rec {
@@ -110,6 +110,11 @@ in {
           		enable = true,
           	},
 
+          	jdk = {
+          		-- install jdk using mason.nvim
+          		auto_install = false,
+          	},
+
           	notifications = {
           		-- enable 'Configuring DAP' & 'DAP configured' messages on start up
           		dap = true,
@@ -133,6 +138,12 @@ in {
           		-- Set following property value to false to disable the notification if
           		-- you know what you are doing
           		duplicate_setup_calls = true,
+
+          		-- nvim-java checks if nvim-java/mason-registry is added correctly to
+          		-- mason.nvim plugin.
+          		-- IF it's not registered correctly, an error will be thrown and nvim-java
+          		-- will stop setup
+          		invalid_mason_registry = false,
           	},
           })
           require('lspconfig').jdtls.setup({})

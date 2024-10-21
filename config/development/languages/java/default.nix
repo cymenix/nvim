@@ -7,7 +7,7 @@
 in
   with lib; {
     imports = [
-      ./nvim-java
+      ./nvim-jdtls
     ];
     options = {
       modules = {
