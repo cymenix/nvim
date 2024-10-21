@@ -27,15 +27,23 @@ in {
                   local config = {
                     capabilities = capabilities,
                     cmd = {
-                      "${(pkgs.lib.getExe jdtls)}",
+                      "java",
+                      '-Declipse.application=org.eclipse.jdt.ls.core.id1',
+                      '-Dosgi.bundles.defaultStartLevel=4',
+                      '-Declipse.product=org.eclipse.jdt.ls.core.product',
+                      '-Dlog.protocol=true',
+                      '-Dlog.level=ALL',
+                      '-Xmx1g',
+                      '--add-modules=ALL-SYSTEM',
+                      '--add-opens', 'java.base/java.util=ALL-UNNAMED',
+                      '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
+                      '-jar',
+                      vim.fn.glob("${jdtls}/share/java/jdtls/plugins/org.eclipse.equinox.launcher_*.jar", 1)
                       "-configuration",
                       vim.fs.normalize("${config.home.homeDirectory}/.cache/jdtls/config"),
-                      "-data", vim.fn.expand("${config.home.homeDirectory}/.cache/jdtls/workspace/" .. workspace_dir)
+                      "-data", vim.fs.root(0, {".git", "mvnw", "gradlew"}) .. workspace_dir
                     },
-                    root_dir = require("jdtls.setup").find_root({ ".git", "mvnw", "gradlew" }),
-                    init_options = {
-                      extendedClientCapabilities = jdtls.extendedClientCapabilities,
-                    }
+                    root_dir = vim.fs.root(0, {".git", "mvnw", "gradlew"}),
                   }
                   jdtls.start_or_attach(config)
                 end
