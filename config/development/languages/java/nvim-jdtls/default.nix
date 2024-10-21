@@ -10,7 +10,7 @@ in {
       extraPlugins = [pkgs.vimPlugins.nvim-jdtls];
       autoCmd = [
         {
-          event = ["FilteType"];
+          event = ["FileType"];
           pattern = "java";
           callback = {
             __raw =
@@ -27,7 +27,7 @@ in {
                   local config = {
                     capabilities = capabilities,
                     cmd = {
-                      ${(pkgs.lib.getExe jdtls)},
+                      "${(pkgs.lib.getExe jdtls)}",
                       "-configuration",
                       vim.fs.normalize("${jdtls}/share/java/jdtls/config_linux"),
                       "-data", vim.fn.expand("${config.home.homeDirectory}/.cache/jdtls/workspace/" .. workspace_dir)
