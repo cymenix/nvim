@@ -57,7 +57,6 @@
                       bundles = bundles,
                       extendedClientCapabilities = extendedClientCapabilities
                     },
-                    handlers['language/status'] = function() end,
                     settings = {
                       java = {
                         signatureHelp = { enabled = true },
@@ -95,6 +94,7 @@
                       }
                     }
                   }
+                  config.handlers['language/status'] = function() end
                   jdtls.start_or_attach(config)
                 end
               '';
