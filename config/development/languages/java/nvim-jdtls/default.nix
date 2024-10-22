@@ -57,44 +57,7 @@
                       bundles = bundles,
                       extendedClientCapabilities = extendedClientCapabilities
                     },
-                    settings = {
-                      java = {
-                        signatureHelp = { enabled = true },
-                        contentProvider = { preferred = 'fernflower' },
-                        completion = {
-                          favoriteStaticMembers = {
-                            "org.hamcrest.MatcherAssert.assertThat",
-                            "org.hamcrest.Matchers.*",
-                            "org.hamcrest.CoreMatchers.*",
-                            "org.junit.jupiter.api.Assertions.*",
-                            "java.util.Objects.requireNonNull",
-                            "java.util.Objects.requireNonNullElse",
-                            "org.mockito.Mockito.*"
-                          },
-                          filteredTypes = {
-                            "com.sun.*",
-                            "io.micrometer.shaded.*",
-                            "java.awt.*",
-                            "jdk.*",
-                            "sun.*",
-                          }
-                        },
-                        sources = {
-                          organizeImports = {
-                            starThreshold = 9999
-                            staticStarThreshold = 9999
-                          }
-                        },
-                        codeGeneration = {
-                          toString = {
-                            template = "''${object.className}{''${member.name()}=''${member.value}, ''${otherMembers}}"
-                          }
-                          useBlocks = true
-                        }
-                      }
-                    }
                   }
-                  handlers['language/status'] = function() end
                   jdtls.start_or_attach(config)
                 end
               '';
@@ -222,3 +185,40 @@
     };
   };
 }
+# settings = {
+#   java = {
+#     signatureHelp = { enabled = true },
+#     contentProvider = { preferred = 'fernflower' },
+#     completion = {
+#       favoriteStaticMembers = {
+#         "org.hamcrest.MatcherAssert.assertThat",
+#         "org.hamcrest.Matchers.*",
+#         "org.hamcrest.CoreMatchers.*",
+#         "org.junit.jupiter.api.Assertions.*",
+#         "java.util.Objects.requireNonNull",
+#         "java.util.Objects.requireNonNullElse",
+#         "org.mockito.Mockito.*"
+#       },
+#       filteredTypes = {
+#         "com.sun.*",
+#         "io.micrometer.shaded.*",
+#         "java.awt.*",
+#         "jdk.*",
+#         "sun.*",
+#       }
+#     },
+#     sources = {
+#       organizeImports = {
+#         starThreshold = 9999
+#         staticStarThreshold = 9999
+#       }
+#     },
+#     codeGeneration = {
+#       toString = {
+#         template = "''${object.className}{''${member.name()}=''${member.value}, ''${otherMembers}}"
+#       }
+#       useBlocks = true
+#     }
+#   }
+# }
+
