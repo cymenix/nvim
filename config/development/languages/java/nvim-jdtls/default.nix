@@ -98,20 +98,32 @@
                       configuration = {
                         runtimes = {
                           {
-                            name = "JavaSE-1.8",
-                            path = "/usr/lib/jvm/java-8-openjdk/",
+                            name = "JavaSE-8",
+                            path = "${pkgs.jdk8.home}",
                           },
                           {
                             name = "JavaSE-11",
-                            path = "/usr/lib/jvm/java-11-openjdk/",
-                          },
-                          {
-                            name = "JavaSE-16",
-                            path = home .. "/.local/jdks/jdk-16.0.1+9/",
+                            path = "${pkgs.jdk11.home}",
                           },
                           {
                             name = "JavaSE-17",
-                            path = home .. "/.local/jdks/jdk-17.0.2+8/",
+                            path = "${pkgs.jdk17.home}",
+                          },
+                          {
+                            name = "JavaSE-19",
+                            path = "${pkgs.jdk19.home}",
+                          },
+                          {
+                            name = "JavaSE-20",
+                            path = "${pkgs.jdk20.home}",
+                          },
+                          {
+                            name = "JavaSE-21",
+                            path = "${pkgs.jdk21.home}",
+                          },
+                          {
+                            name = "JavaSE-22",
+                            path = "${pkgs.jdk22.home}",
                           },
                         }
                       };
