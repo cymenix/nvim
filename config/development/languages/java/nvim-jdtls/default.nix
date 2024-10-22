@@ -109,7 +109,6 @@
                       };
                     };
                   }
-                  config.handlers['language/status'] = function() end
                   jdtls.start_or_attach(config)
                 end
               '';
