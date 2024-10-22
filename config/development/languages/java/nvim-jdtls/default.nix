@@ -16,7 +16,7 @@
               sharePath = "share/vscode/extensions";
               jarGlob = "server/*.jar";
               debugger = "${javaExt.vscode-java-debug}/${sharePath}/vscjava.vscode-java-debug/${jarGlob}";
-              tester = "${javaExt.vscode-java-test}/${sharePath}/vscjava.vscode-java-test/${jarGlob}";
+              tester = "${javaExt.vscode-java-test}/${sharePath}/vscjava.vscode-java-test/";
               jacoco = "${pkgs.jacoco}/share/java/*.jar";
             in
               /*
@@ -29,11 +29,11 @@
                   local client_capabilities = vim.lsp.protocol.make_client_capabilities()
                   local capabilities = cmp_nvim_lsp.default_capabilities(client_capabilities)
                   local workspace_dir = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
+                  local home = os.getenv('HOME')
                   local bundles = {
                     vim.fn.glob("${debugger}", 1)
                   }
-                  vim.list_extend(bundles, vim.split(vim.fn.glob("${tester}", 1), "\n"))
-                  vim.list_extend(bundles, vim.split(vim.fn.glob("${jacoco}", 1), "\n"))
+                  vim.list_extend(bundles, vim.split(vim.fn.glob(home .. ".local/share/java/*.jar", 1), "\n"))
                   local extendedClientCapabilities = jdtls.extendedClientCapabilities
                   extendedClientCapabilities.resolveAdditionalTextEditsSupport = true
                   local config = {
