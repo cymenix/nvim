@@ -88,7 +88,7 @@
                         codeGeneration = {
                           toString = {
                             template = "''${object.className}{''${member.name()}=''${member.value}, ''${otherMembers}}"
-                          }
+                          },
                           useBlocks = true
                         }
                       }
