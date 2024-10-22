@@ -58,6 +58,65 @@
                       extendedClientCapabilities = extendedClientCapabilities
                     },
                   }
+                  config.settings = {
+                    java = {
+                      signatureHelp = { enabled = true };
+                      contentProvider = { preferred = 'fernflower' };
+                      completion = {
+                        favoriteStaticMembers = {
+                          "org.hamcrest.MatcherAssert.assertThat",
+                          "org.hamcrest.Matchers.*",
+                          "org.hamcrest.CoreMatchers.*",
+                          "org.junit.jupiter.api.Assertions.*",
+                          "java.util.Objects.requireNonNull",
+                          "java.util.Objects.requireNonNullElse",
+                          "org.mockito.Mockito.*"
+                        },
+                        filteredTypes = {
+                          "com.sun.*",
+                          "io.micrometer.shaded.*",
+                          "java.awt.*",
+                          "jdk.*",
+                          "sun.*",
+                        },
+                      };
+                      sources = {
+                        organizeImports = {
+                          starThreshold = 9999;
+                          staticStarThreshold = 9999;
+                        };
+                      };
+                      codeGeneration = {
+                        toString = {
+                          template = "''${object.className}{''${member.name()}=''${member.value}, ''${otherMembers}}"
+                        },
+                        hashCodeEquals = {
+                          useJava7Objects = true,
+                        },
+                        useBlocks = true,
+                      };
+                      configuration = {
+                        runtimes = {
+                          {
+                            name = "JavaSE-1.8",
+                            path = "/usr/lib/jvm/java-8-openjdk/",
+                          },
+                          {
+                            name = "JavaSE-11",
+                            path = "/usr/lib/jvm/java-11-openjdk/",
+                          },
+                          {
+                            name = "JavaSE-16",
+                            path = home .. "/.local/jdks/jdk-16.0.1+9/",
+                          },
+                          {
+                            name = "JavaSE-17",
+                            path = home .. "/.local/jdks/jdk-17.0.2+8/",
+                          },
+                        }
+                      };
+                    };
+                  }
                   config.handlers['language/status'] = function() end
                   jdtls.start_or_attach(config)
                 end
@@ -186,40 +245,3 @@
     };
   };
 }
-# settings = {
-#   java = {
-#     signatureHelp = { enabled = true },
-#     contentProvider = { preferred = 'fernflower' },
-#     completion = {
-#       favoriteStaticMembers = {
-#         "org.hamcrest.MatcherAssert.assertThat",
-#         "org.hamcrest.Matchers.*",
-#         "org.hamcrest.CoreMatchers.*",
-#         "org.junit.jupiter.api.Assertions.*",
-#         "java.util.Objects.requireNonNull",
-#         "java.util.Objects.requireNonNullElse",
-#         "org.mockito.Mockito.*"
-#       },
-#       filteredTypes = {
-#         "com.sun.*",
-#         "io.micrometer.shaded.*",
-#         "java.awt.*",
-#         "jdk.*",
-#         "sun.*",
-#       }
-#     },
-#     sources = {
-#       organizeImports = {
-#         starThreshold = 9999
-#         staticStarThreshold = 9999
-#       }
-#     },
-#     codeGeneration = {
-#       toString = {
-#         template = "''${object.className}{''${member.name()}=''${member.value}, ''${otherMembers}}"
-#       },
-#       useBlocks = true
-#     }
-#   }
-# }
-
