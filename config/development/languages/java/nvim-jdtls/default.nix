@@ -98,22 +98,6 @@
                       configuration = {
                         runtimes = {
                           {
-                            name = "JavaSE-8",
-                            path = "${pkgs.jdk8.home}",
-                          },
-                          {
-                            name = "JavaSE-11",
-                            path = "${pkgs.jdk11.home}",
-                          },
-                          {
-                            name = "JavaSE-17",
-                            path = "${pkgs.jdk17.home}",
-                          },
-                          {
-                            name = "JavaSE-19",
-                            path = "${pkgs.jdk19.home}",
-                          },
-                          {
                             name = "JavaSE-20",
                             path = "${pkgs.jdk20.home}",
                           },
