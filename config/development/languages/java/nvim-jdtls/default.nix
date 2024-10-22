@@ -32,8 +32,8 @@
                     vim.fn.glob("${debugger}", 1)
                   }
                   vim.list_extend(bundles, vim.split(vim.fn.glob("${tester}", 1), "\n"))
-                  local extendedClientCapabilities = jdtls.extendedClientCapabilities;
-                  extendedClientCapabilities.resolveAdditionalTextEditsSupport = true;
+                  local extendedClientCapabilities = jdtls.extendedClientCapabilities
+                  extendedClientCapabilities.resolveAdditionalTextEditsSupport = true
                   local config = {
                     capabilities = capabilities,
                     cmd = {
@@ -59,8 +59,8 @@
                     },
                     settings = {
                       java = {
-                        signatureHelp = { enabled = true };
-                        contentProvider = { preferred = 'fernflower' };
+                        signatureHelp = { enabled = true },
+                        contentProvider = { preferred = 'fernflower' },
                         completion = {
                           favoriteStaticMembers = {
                             "org.hamcrest.MatcherAssert.assertThat",
@@ -78,14 +78,17 @@
                             "jdk.*",
                             "sun.*",
                           }
-                        }
+                        },
                         sources = {
                           organizeImports = {
                             starThreshold = 9999
                             staticStarThreshold = 9999
                           }
-                        }
+                        },
                         codeGeneration = {
+                          toString = {
+                            template = "''${object.className}{''${member.name()}=''${member.value}, ''${otherMembers}}"
+                          }
                           useBlocks = true
                         }
                       }
