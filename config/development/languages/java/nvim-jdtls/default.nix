@@ -26,7 +26,7 @@
                 pname = "java-test";
                 version = "0.42.0";
                 src = "${repo}/java-extension";
-                mvnHash = "sha256-reAajNiaMR/uph9NAcnI52mUNxG0uQ/T62AkZ2vQPT4=";
+                mvnHash = "sha256-d7NwCOl+1mbe6Audw2jSLYGKiBSAz6Ky2bY1ZweyCP8=";
                 installPhase = ''
                   mkdir -p $out
                   cp com.microsoft.java.test.plugin/target/*.jar $out
