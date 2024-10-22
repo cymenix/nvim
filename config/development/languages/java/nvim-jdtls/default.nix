@@ -95,18 +95,6 @@
                         },
                         useBlocks = true,
                       };
-                      configuration = {
-                        runtimes = {
-                          {
-                            name = "JavaSE-21",
-                            path = "${pkgs.jdk21.home}",
-                          },
-                          {
-                            name = "JavaSE-22",
-                            path = "${pkgs.jdk22.home}",
-                          },
-                        }
-                      };
                     };
                   }
                   jdtls.start_or_attach(config)
