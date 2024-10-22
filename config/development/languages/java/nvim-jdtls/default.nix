@@ -12,7 +12,7 @@
           pattern = "java";
           callback = {
             __raw = let
-              javaExt = "${pkgs.vscode-extensions.vscjava}";
+              javaExt = pkgs.vscode-extensions.vscjava;
               sharePath = "share/vscode/extensions";
               jarGlob = "server/*.jar";
               debugger = "${javaExt.vscode-java-debug}/${sharePath}/vscjava.vscode-java-debug/${jarGlob}";
@@ -32,6 +32,8 @@
                     vim.fn.glob("${debugger}", 1)
                   }
                   vim.list_extend(bundles, vim.split(vim.fn.glob("${tester}", 1), "\n"))
+                  local extendedClientCapabilities = jdtls.extendedClientCapabilities;
+                  extendedClientCapabilities.resolveAdditionalTextEditsSupport = true;
                   local config = {
                     capabilities = capabilities,
                     cmd = {
@@ -52,9 +54,44 @@
                     },
                     root_dir = vim.fs.root(0, {".git", "mvnw", "gradlew"}),
                     init_options = {
-                      bundles = bundles
+                      bundles = bundles,
+                      extendedClientCapabilities = extendedClientCapabilities
+                    },
+                    settings = {
+                      java = {
+                        signatureHelp = { enabled = true };
+                        contentProvider = { preferred = 'fernflower' };
+                        completion = {
+                          favoriteStaticMembers = {
+                            "org.hamcrest.MatcherAssert.assertThat",
+                            "org.hamcrest.Matchers.*",
+                            "org.hamcrest.CoreMatchers.*",
+                            "org.junit.jupiter.api.Assertions.*",
+                            "java.util.Objects.requireNonNull",
+                            "java.util.Objects.requireNonNullElse",
+                            "org.mockito.Mockito.*"
+                          },
+                          filteredTypes = {
+                            "com.sun.*",
+                            "io.micrometer.shaded.*",
+                            "java.awt.*",
+                            "jdk.*",
+                            "sun.*",
+                          }
+                        }
+                        sources = {
+                          organizeImports = {
+                            starThreshold = 9999
+                            staticStarThreshold = 9999
+                          }
+                        }
+                        codeGeneration = {
+                          useBlocks = true
+                        }
+                      }
                     }
                   }
+                  handlers['language/status'] = function() end
                   jdtls.start_or_attach(config)
                 end
               '';
