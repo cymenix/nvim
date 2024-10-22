@@ -17,6 +17,7 @@
               jarGlob = "server/*.jar";
               debugger = "${javaExt.vscode-java-debug}/${sharePath}/vscjava.vscode-java-debug/${jarGlob}";
               tester = "${javaExt.vscode-java-test}/${sharePath}/vscjava.vscode-java-test/${jarGlob}";
+              jacoco = "${pkgs.jacoco}/share/java/*.jar";
             in
               /*
               lua
@@ -32,6 +33,7 @@
                     vim.fn.glob("${debugger}", 1)
                   }
                   vim.list_extend(bundles, vim.split(vim.fn.glob("${tester}", 1), "\n"))
+                  vim.list_extend(bundles, vim.split(vim.fn.glob("${jacoco}", 1), "\n"))
                   local extendedClientCapabilities = jdtls.extendedClientCapabilities
                   extendedClientCapabilities.resolveAdditionalTextEditsSupport = true
                   local config = {
