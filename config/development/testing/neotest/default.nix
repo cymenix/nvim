@@ -18,7 +18,7 @@ in {
               require('rustaceanvim.neotest'),
               require('neotest-haskell'),
               require('neotest-java')({
-                junit_jar = "${junit_jar}/java_share/junit-platform-console-standalone-1.10.1.jar"
+                junit_jar = "${junit_jar}/share/java/junit-platform-console-standalone-1.10.1.jar"
               }),
               require('neotest-jest')({
                 jestCommand = "jest",
