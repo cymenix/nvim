@@ -16,8 +16,25 @@
               sharePath = "share/vscode/extensions";
               jarGlob = "server/*.jar";
               debugger = "${javaExt.vscode-java-debug}/${sharePath}/vscjava.vscode-java-debug/${jarGlob}";
-              tester = "${javaExt.vscode-java-test}/${sharePath}/vscjava.vscode-java-test/";
-              jacoco = "${pkgs.jacoco}/share/java/*.jar";
+              repo = pkgs.fetchFromGitHub {
+                owner = "microsoft";
+                repo = "vscode-java-test";
+                rev = "2612b25e398228820c21a1197c686bf21467d9b0";
+                hash = "sha256-+Ge0qsQXW+2DFRLbt2e/ygjU/lR/cFMHd4LP56/LAH8=";
+              };
+              testJars = pkgs.maven.buildMavenPackage {
+                pname = "java-test";
+                version = "0.42.0";
+                src = "${repo}/java-extension";
+                mvnHash = "sha256-d7NwCOl+1mbe6Audw2jSLYGKiBSAz6Ky2bY1ZweyCP8=";
+                installPhase = ''
+                  mkdir -p $out
+                  cp com.microsoft.java.test.plugin/target/*.jar $out
+                  cp com.microsoft.java.test.runner/target/*.jar $out
+                  cp com.microsoft.java.test.plugin.site/target/repository/plugins/*.jar $out
+                  cp .m2/org/jacoco/org.jacoco.core/0.8.12/*.jar $out
+                '';
+              };
             in
               /*
               lua
@@ -33,7 +50,7 @@
                   local bundles = {
                     vim.fn.glob("${debugger}", 1)
                   }
-                  vim.list_extend(bundles, vim.split(vim.fn.glob(home .. ".local/share/java/*.jar", 1), "\n"))
+                  vim.list_extend(bundles, vim.split(vim.fn.glob("${testJars}/*.jar", 1), "\n"))
                   local extendedClientCapabilities = jdtls.extendedClientCapabilities
                   extendedClientCapabilities.resolveAdditionalTextEditsSupport = true
                   local config = {
