@@ -10,6 +10,7 @@
             adapters = {
               require('rustaceanvim.neotest'),
               require('neotest-haskell'),
+              require('neotest-java'),
               require('neotest-jest')({
                 jestCommand = "jest",
                 jestConfigFile = "jest.config.ts",
@@ -24,6 +25,7 @@
         neotest
         neotest-haskell
         neotest-jest
+        neotest-java
       ];
       keymaps = [
         {
