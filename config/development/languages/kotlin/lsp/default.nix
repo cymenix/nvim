@@ -1,7 +1,6 @@
-{pkgs, ...}: {
+{...}: {
   programs = {
     nixvim = {
-      extraPlugins = [pkgs.vimPlugins.kotlin-vim];
       autoCmd = [
         {
           event = ["FileType"];
@@ -18,21 +17,7 @@
                   local capabilities = cmp_nvim_lsp.default_capabilities(client_capabilities)
                   require('lspconfig').kotlin_language_server.setup{
                     capabilities = capabilities,
-                    cmd = { "kotlin-language-server" },
-                    filetypes = { "kotlin" },
-                    kotlin = {
-                      languageServer = {
-                        enabled = true
-                      };
-                      compiler = {
-                        jvm = {
-                          target = "1.8";
-                        }
-                      };
-                      trace = {
-                        server = "messages"
-                      }
-                    }
+                    cmd = { "kotlin-language-server" }
                   }
                 end
               '';
