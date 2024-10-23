@@ -20,6 +20,7 @@
                     capabilities = capabilities,
                     root_dir = vim.fs.root(0, { ".git", "gradle.lock", "settings.gradle.kts" }),
                     cmd = { "kotlin-language-server" },
+                    filetypes = { "kotlin" },
                     kotlin = {
                       languageServer = {
                         enabled = true
