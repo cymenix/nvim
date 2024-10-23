@@ -42,7 +42,6 @@
               html = ["prettierd"];
               json = ["prettierd"];
               yaml = ["prettierd"];
-              kotlin = ["ktlint"];
               graphql = ["prettierd"];
               markdown = ["prettierd"];
             };
