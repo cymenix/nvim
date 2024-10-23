@@ -1,4 +1,11 @@
-{pkgs, ...}: {
+{pkgs, ...}: let
+  junit_jar = pkgs.fetchMavenArtifact {
+    groupId = "org/junit/platform";
+    artifactId = "junit-platform-console-standalone";
+    version = "1.10.1";
+    sha256 = "sha256-tC6qU9E1dtF9tfuLKAcipq6eNtr5X0JivG6W1Msgcl8=";
+  };
+in {
   programs = {
     nixvim = {
       extraConfigLuaPost =
@@ -10,7 +17,9 @@
             adapters = {
               require('rustaceanvim.neotest'),
               require('neotest-haskell'),
-              require('neotest-java'),
+              require('neotest-java')({
+                junit_jar = "${junit_jar}/java_share/junit-platform-console-standalone-1.10.1.jar"
+              }),
               require('neotest-jest')({
                 jestCommand = "jest",
                 jestConfigFile = "jest.config.ts",
