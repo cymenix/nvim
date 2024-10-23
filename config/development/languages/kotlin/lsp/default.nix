@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   programs = {
     nixvim = {
-      extraPlugins = [pkgs.vimPlugins.nvim-jdtls];
+      extraPlugins = [pkgs.vimPlugins.kotlin-vim];
       autoCmd = [
         {
           event = ["FileType"];
@@ -18,7 +18,6 @@
                   local capabilities = cmp_nvim_lsp.default_capabilities(client_capabilities)
                   require('lspconfig').kotlin_language_server.setup{
                     capabilities = capabilities,
-                    -- root_dir = vim.fs.root(0, { ".git", "mvnw", "gradlew", "gradle.lock", "settings.gradle.kts" }),
                     cmd = { "kotlin-language-server" },
                     settings = {
                       kotlin = {
@@ -35,6 +34,15 @@
           };
         }
       ];
+      plugins = {
+        conform-nvim = {
+          settings = {
+            formatters_by_ft = {
+              kotlin = ["ktlint"];
+            };
+          };
+        };
+      };
     };
   };
 }
