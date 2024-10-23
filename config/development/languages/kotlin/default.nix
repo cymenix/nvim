@@ -3,15 +3,11 @@
   lib,
   ...
 }: let
-  cfg = config.modules.editor.nixvim.development;
+  cfg = config.modules.editor.nixvim.development.languages;
 in
   with lib; {
     imports = [
-      ./haskell
-      ./java
-      ./kotlin
-      ./latex
-      ./rust
+      ./lsp
     ];
     options = {
       modules = {
@@ -19,7 +15,9 @@ in
           nixvim = {
             development = {
               languages = {
-                enable = mkEnableOption "Enable support for various languages" // {default = cfg.enable;};
+                kotlin = {
+                  enable = mkEnableOption "Enable kotlin support" // {default = cfg.enable;};
+                };
               };
             };
           };
