@@ -9,13 +9,6 @@
               autostart = true;
               cmd = ["${pkgs.kotlin-language-server}/bin/kotlin-language-server"];
               filetypes = ["kotlin" "kt"];
-              rootDir = {
-                __raw = ''
-                  function()
-                    vim.fs.root(0, {".git", "mvnw", "gradlew", "gradle.lock"})
-                  end
-                '';
-              };
               settings = {
                 kotlin = {
                   compiler = {
@@ -39,7 +32,7 @@
           };
         };
       };
-      # extraPlugins = with pkgs.vimPlugins; [kotlin-vim];
+      extraPlugins = with pkgs.vimPlugins; [kotlin-vim];
       # extraConfigLuaPost = ''
       #   require('lspconfig').kotlin_language_server.setup{
       #     root_dir = vim.fs.root(0, {".git", "gradle.lock"}),
