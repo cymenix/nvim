@@ -39,7 +39,7 @@
           };
         };
       };
-      extraPlugins = with pkgs.vimPlugins; [kotlin-vim];
+      # extraPlugins = with pkgs.vimPlugins; [kotlin-vim];
       # extraConfigLuaPost = ''
       #   require('lspconfig').kotlin_language_server.setup{
       #     root_dir = vim.fs.root(0, {".git", "gradle.lock"}),
