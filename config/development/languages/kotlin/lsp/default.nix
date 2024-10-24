@@ -1,14 +1,36 @@
 {pkgs, ...}: {
   programs = {
     nixvim = {
-      extraPlugins = with pkgs.vimPlugins; [kotlin-vim];
-      extraConfigLuaPost = ''
-        require('lspconfig').kotlin_language_server.setup{
-          root_dir = vim.fs.root(0, {".git", "gradle.lock"}),
-          cmd = { "kotlin-language-server" }
-        }
-      '';
       plugins = {
+        lsp = {
+          servers = {
+            kotlin-language-server = {
+              enable = true;
+              autostart = true;
+              cmd = ["${pkgs.kotlin-language-server}/bin/kotlin-language-server"];
+              filetypes = ["kotlin" "kt"];
+              rootDir = {
+                __raw = ''
+                  function()
+                    vim.fs.root(0, {".git", "mvnw", "gradlew", "gradle.lock"})
+                  end
+                '';
+              };
+              settings = {
+                kotlin = {
+                  compiler = {
+                    target = {
+                      jvm = "1.8";
+                    };
+                  };
+                  languageServer = {
+                    path = "${pkgs.kotlin-language-server}/bin/kotlin-language-server";
+                  };
+                };
+              };
+            };
+          };
+        };
         conform-nvim = {
           settings = {
             formatters_by_ft = {
@@ -17,6 +39,13 @@
           };
         };
       };
+      extraPlugins = with pkgs.vimPlugins; [kotlin-vim];
+      # extraConfigLuaPost = ''
+      #   require('lspconfig').kotlin_language_server.setup{
+      #     root_dir = vim.fs.root(0, {".git", "gradle.lock"}),
+      #     cmd = { "kotlin-language-server" }
+      #   }
+      # '';
       # autoCmd = [
       #   {
       #     event = ["FileType"];
@@ -29,8 +58,19 @@
       #         ''
       #           function()
       #             require('lspconfig').kotlin_language_server.setup{
-      #               root_dir = vim.fs.root(0, {"gradle.lock"}),
-      #               cmd = { "kotlin-language-server" }
+      #               cmd = { "${pkgs.kotlin-language-server}/bin/kotlin-language-server" },
+      #               settings = {
+      #                 kotlin = {
+      #                   compiler = {
+      #                     target = {
+      #                       jvm = "1.8"
+      #                     }
+      #                   },
+      #                   languageServer = {
+      #                     path = "${pkgs.kotlin-language-server}/bin/kotlin-language-server"
+      #                   }
+      #                 }
+      #               }
       #             }
       #           end
       #         '';
