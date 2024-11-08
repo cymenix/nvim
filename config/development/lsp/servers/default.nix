@@ -16,6 +16,7 @@ in
       ./docker
       ./emmet
       ./html
+      ./htmx
       ./json
       ./eslint
       ./lua
