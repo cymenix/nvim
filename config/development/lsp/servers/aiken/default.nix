@@ -1,6 +1,5 @@
-inputs: {
+{
   pkgs,
-  system,
   config,
   lib,
   ...
@@ -37,8 +36,8 @@ in
     config = mkIf (cfg.enable && cfg.aiken.enable) {
       programs = {
         nixvim = {
-          extraPackages = with inputs.aiken.packages.${system}; [
-            aiken
+          extraPackages = [
+            pkgs.aiken
           ];
           extraPlugins = [aiken-nvim];
           plugins = {

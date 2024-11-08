@@ -4,7 +4,7 @@
       plugins = {
         lsp = {
           servers = {
-            lua-ls = {
+            lua_ls = {
               enable = true;
               extraOptions = {};
             };

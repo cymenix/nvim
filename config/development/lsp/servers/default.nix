@@ -1,4 +1,4 @@
-inputs: {
+{
   config,
   lib,
   ...
@@ -7,7 +7,7 @@ inputs: {
 in
   with lib; {
     imports = [
-      (import ./aiken inputs)
+      ./aiken
       ./angular
       ./bash
       ./c

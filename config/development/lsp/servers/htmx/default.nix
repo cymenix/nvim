@@ -4,14 +4,11 @@
       plugins = {
         lsp = {
           servers = {
-            emmet_ls = {
+            htmx = {
               enable = true;
               extraOptions = {};
               filetypes = [
-                "typescript"
                 "html"
-                "typescriptreact"
-                "typescript.tsx"
               ];
             };
           };

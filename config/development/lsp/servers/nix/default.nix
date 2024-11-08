@@ -4,7 +4,7 @@
       plugins = {
         lsp = {
           servers = {
-            nil-ls = {
+            nixd = {
               enable = true;
               extraOptions = {};
             };

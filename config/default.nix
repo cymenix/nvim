@@ -18,7 +18,7 @@ in
     imports = [
       inputs.nixvim.homeManagerModules.nixvim
       ./core
-      (import ./development inputs)
+      ./development
       ./ui
       (import ./ux inputs)
       ./vcs

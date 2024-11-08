@@ -1,4 +1,4 @@
-inputs: {
+{
   config,
   lib,
   ...
@@ -12,7 +12,7 @@ in
       ./formatting
       ./languages
       ./linting
-      (import ./lsp inputs)
+      ./lsp
       ./snippets
       ./testing
       ./utils
