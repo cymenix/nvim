@@ -1,4 +1,4 @@
-inputs: {
+{
   config,
   lib,
   ...
@@ -6,7 +6,7 @@ inputs: {
   cfg = config.modules.editor.nixvim.development;
 in
   with lib; {
-    imports = [(import ./servers inputs)];
+    imports = [./servers];
     options = {
       modules = {
         editor = {
