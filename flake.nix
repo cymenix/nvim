@@ -32,14 +32,6 @@
         };
       };
     };
-    aiken = {
-      url = "github:aiken-lang/aiken";
-      inputs = {
-        nixpkgs = {
-          follows = "nixpkgs";
-        };
-      };
-    };
   };
 
   outputs = inputs:
