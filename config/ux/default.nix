@@ -1,4 +1,4 @@
-inputs: {
+{
   config,
   lib,
   ...
@@ -11,7 +11,7 @@ in
       ./diagnostics
       ./ergonomics
       ./navigation
-      (import ./organization inputs)
+      ./organization
       ./search
       ./shortcuts
       ./terminal

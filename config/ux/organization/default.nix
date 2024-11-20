@@ -7,7 +7,6 @@ inputs: {
 in
   with lib; {
     imports = [
-      (import ./neorg inputs)
       ./nx
     ];
     options = {

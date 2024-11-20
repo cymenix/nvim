@@ -24,14 +24,6 @@
         };
       };
     };
-    neorg-overlay = {
-      url = "github:nvim-neorg/nixpkgs-neorg-overlay";
-      inputs = {
-        nixpkgs = {
-          follows = "nixpkgs";
-        };
-      };
-    };
   };
 
   outputs = inputs:
@@ -41,7 +33,7 @@
           pkgs = import nixpkgs {inherit system;};
         in {
           homeManagerModules = {
-            default = import ./config inputs;
+            default = import ./config {inherit inputs;};
           };
           formatter = pkgs.alejandra;
         }

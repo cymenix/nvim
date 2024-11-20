@@ -1,4 +1,4 @@
-inputs: {
+{inputs, ...}: {
   nixpkgs,
   system,
   config,
@@ -8,10 +8,7 @@ inputs: {
   cfg = config.modules.editor;
   pkgs = import nixpkgs {
     inherit system;
-    overlays = with inputs; [
-      neovim-nightly-overlay.overlays.default
-      neorg-overlay.overlays.default
-    ];
+    overlays = [inputs.neovim-nightly-overlay.overlays.default];
   };
 in
   with lib; {
@@ -20,7 +17,7 @@ in
       ./core
       ./development
       ./ui
-      (import ./ux inputs)
+      ./ux
       ./vcs
     ];
     options = {
@@ -35,7 +32,7 @@ in
     config = mkIf cfg.nixvim.enable {
       programs = {
         nixvim = {
-          enable = cfg.nixvim.enable;
+          inherit (cfg.nixvim) enable;
           package = pkgs.neovim;
           enableMan = true;
           vimAlias = false;
