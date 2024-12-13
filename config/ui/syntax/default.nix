@@ -8,7 +8,7 @@ in
   with lib; {
     imports = [
       ./indent-blankline
-      ./nvim-colorizer
+      ./colorizer
       ./rainbow-delimiters
     ];
     options = {
