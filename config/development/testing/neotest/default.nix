@@ -10,8 +10,8 @@
     src = pkgs.fetchFromGitHub {
       owner = "clemenscodes";
       repo = "neotest-java";
-      rev = "936c43772404022f107d507df0c14696f1180187";
-      hash = "sha256-Avz0dzAu9/gG1vxp/pAU+9saAxyar8L+PBcMvmuFCQE=";
+      rev = "01d42c2d27a9f6396b24063ba3714ec9f71c7c80";
+      hash = "sha256-W0lmSnmYhQRqQ3LVn/LWhWTpoeocGZNmvjsR6OsW21w=";
     };
   };
 in {
