@@ -24,7 +24,6 @@
       plugins = {
         lint = {
           enable = true;
-          extraOptions = {};
           lintersByFt = {
             javascript = ["eslint_d"];
             typescript = ["eslint_d"];
