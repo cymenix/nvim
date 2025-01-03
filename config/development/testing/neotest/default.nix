@@ -5,15 +5,7 @@
     version = "1.10.1";
     sha256 = "sha256-tC6qU9E1dtF9tfuLKAcipq6eNtr5X0JivG6W1Msgcl8=";
   };
-  neotest-java = pkgs.vimUtils.buildVimPlugin {
-    name = "neotest-java";
-    src = pkgs.fetchFromGitHub {
-      owner = "clemenscodes";
-      repo = "neotest-java";
-      rev = "936c43772404022f107d507df0c14696f1180187";
-      hash = "sha256-Avz0dzAu9/gG1vxp/pAU+9saAxyar8L+PBcMvmuFCQE=";
-    };
-  };
+  neotest-java = import ./neotest-java {inherit pkgs;};
 in {
   programs = {
     nixvim = {
