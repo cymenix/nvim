@@ -1,44 +1,45 @@
-{inputs, ...}: {
-  nixpkgs,
-  system,
-  config,
+{
+  inputs,
   lib,
+  ...
+}: {
+  config,
+  system,
   ...
 }: let
   cfg = config.modules.editor;
-  pkgs = import nixpkgs {
+  pkgs = import inputs.nixpkgs {
     inherit system;
     overlays = [inputs.neovim-nightly-overlay.overlays.default];
   };
-in
-  with lib; {
-    imports = [
-      inputs.nixvim.homeManagerModules.nixvim
-      ./core
-      ./development
-      ./ui
-      ./ux
-      ./vcs
-    ];
-    options = {
-      modules = {
-        editor = {
-          nixvim = {
-            enable = mkEnableOption "Enable an amazing neovim setup" // {default = false;};
-          };
-        };
-      };
-    };
-    config = mkIf cfg.nixvim.enable {
-      programs = {
+in {
+  imports = [
+    inputs.nixvim.homeManagerModules.nixvim
+    ./core
+    ./development
+    ./ui
+    ./ux
+    ./vcs
+  ];
+  options = {
+    modules = {
+      editor = {
         nixvim = {
-          inherit (cfg.nixvim) enable;
-          package = pkgs.neovim;
-          enableMan = true;
-          vimAlias = false;
-          viAlias = false;
-          colorscheme = "catppuccin";
+          enable = lib.mkEnableOption "Enable an amazing neovim setup" // {default = false;};
         };
       };
     };
-  }
+  };
+  config = lib.mkIf cfg.nixvim.enable {
+    programs = {
+      nixvim = {
+        inherit (cfg.nixvim) enable;
+        package = pkgs.neovim;
+        enableMan = true;
+        vimAlias = false;
+        viAlias = false;
+        colorscheme = "catppuccin";
+      };
+    };
+  };
+}

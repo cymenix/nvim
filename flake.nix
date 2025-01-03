@@ -26,16 +26,16 @@
     };
   };
 
-  outputs = inputs:
-    with inputs;
-      flake-utils.lib.eachDefaultSystem (
-        system: let
-          pkgs = import nixpkgs {inherit system;};
-        in {
-          homeManagerModules = {
-            default = import ./config {inherit inputs;};
-          };
-          formatter = pkgs.alejandra;
-        }
-      );
+  outputs = {nixpkgs, ...} @ inputs:
+    inputs.flake-utils.lib.eachDefaultSystem (
+      system: let
+        pkgs = import nixpkgs {inherit system;};
+        inherit (pkgs) lib;
+      in {
+        homeManagerModules = {
+          default = import ./config {inherit inputs pkgs lib;};
+        };
+        formatter = pkgs.alejandra;
+      }
+    );
 }
